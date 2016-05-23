@@ -16,7 +16,8 @@
       listsDataService.getLists()
       .then(function (lists) {
         console.log('lists: ', lists);
-        vm.lists = lists;
+        vm.lists = lists.data.data;
+        console.log(vm.lists);
       })
       .catch(function (err) {
         return next(err);
