@@ -10,6 +10,7 @@ var swig = require('swig');
 
 // *** routes *** //
 var routes = require('./routes/index.js');
+var listsRoute = require('./routes/lists.js')
 
 
 // *** express instance *** //
@@ -17,9 +18,9 @@ var app = express();
 
 
 // *** view engine *** //
-var swig = new swig.Swig();
-app.engine('html', swig.renderFile);
-app.set('view engine', 'html');
+// var swig = new swig.Swig();
+// app.engine('html', swig.renderFile);
+// app.set('view engine', 'html');
 
 
 // *** static directory *** //
@@ -36,6 +37,7 @@ app.use(express.static(path.join(__dirname, '../client')));
 
 // *** main routes *** //
 app.use('/', routes);
+app.use('/lists', listsRoute);
 
 
 // catch 404 and forward to error handler
@@ -53,7 +55,7 @@ app.use(function(req, res, next) {
 if (app.get('env') === 'development') {
   app.use(function(err, req, res, next) {
     res.status(err.status || 500);
-    res.render('error', {
+    res.json({
       message: err.message,
       error: err
     });
@@ -64,9 +66,9 @@ if (app.get('env') === 'development') {
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {
   res.status(err.status || 500);
-  res.render('error', {
+  res.json({
     message: err.message,
-    error: {}
+    error: err
   });
 });
 
