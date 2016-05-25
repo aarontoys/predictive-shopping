@@ -1,1 +1,233 @@
-<h1>test</h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <form class="form-horizontal" ng-submit="vm.submit()">
+      <div class="form-group">
+        <label class="col-md-3 control-label">First Name:</label>
+        <div class="col-md-9">
+          <input ng-model="vm.fname" class="form-control" type="text" placeholder="John">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-3 control-label">Last Name:</label>
+        <div class="col-md-9">
+          <input ng-model="vm.lname" class="form-control" type="text" placeholder="Doe">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-3 control-label">Email Address:</label>
+        <div class="col-md-9">
+          <input ng-model="vm.email" class="form-control" type="email" placeholder="johndoe@gmail.com">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-3 control-label">Password:</label>
+        <div class="col-md-9">
+          <input ng-model="vm.pword" class="form-control" type="password" placeholder="***********">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-md-offset-3 col-md-9">
+          <div class="radio">
+            <label>
+              <input ng-model="vm.option" type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+              I prefer to shop every x days
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-md-offset-3 col-md-9">
+
+            every <input ng-model="vm.interval" type="number">
+            <select ng-model="vm.freq">
+              <option value="days" selected>days</option>
+              <option value="weeks">weeks</option>
+              <option value="months">months</option>
+            </select>
+
+        </div>
+      </div>
+      <div class="form-group">
+          <div class="col-md-9 col-md-offset-3">
+            allow shops on: <br>
+<!--             <select multiple ng-model="vm.exceptions"> 
+              <option value="1">Monday</option>
+              <option value="2">Tuesday</option>
+              <option value="3">Wednesday</option>
+              <option value="4">Thursday</option>
+              <option value="5">Friday</option>
+              <option value="6">Saturday</option>
+              <option value="7">Sunday</option>
+            </select>
+          </div> -->
+          </div>
+      <!--     <div>
+            <div class="col-md-9 col-md-offset-3">
+              <div class="col-md-3">
+                <div class="form-group">
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" ng-model="vm.monday" checked="true">
+                      Monday
+                    </label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" checked ng-model="vm.allowed">
+                      Tuesday
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" checked ng-model="vm.allowed">
+                      Wednesday
+                    </label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" checked ng-model="vm.allowed">
+                      Thursday
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" checked ng-model="vm.allowed">
+                      Friday
+                    </label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" checked ng-model="vm.allowed">
+                      Saturday
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" checked ng-model="vm.allowed">
+                      Sunday
+                    </label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" checked ng-model="vm.allowed">
+                      Weekends
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> -->
+      </div>
+      <div class="form-group">
+        <div class="col-md-9 col-md-offset-3">
+          <div class="radio">
+            <label>
+              <input ng-model="vm.option" type="radio" name="optionsRadios" id="optionsRadios1" value="option2">
+              I prefer to shop on particular days of the week.
+            </label>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="col-md-9 col-md-offset-3">
+          <div class="col-md-3">
+            <div class="form-group">
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" ng-model="vm.mon" checked="true" value="1">
+                  Monday
+                </label>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" checked ng-model="vm.tue">
+                  Tuesday
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" checked ng-model="vm.wed">
+                  Wednesday
+                </label>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" checked ng-model="vm.thu">
+                  Thursday
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" checked ng-model="vm.fri">
+                  Friday
+                </label>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" checked ng-model="vm.sat">
+                  Saturday
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" checked ng-model="vm.sun">
+                  Sunday
+                </label>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" checked ng-click="">
+                  Weekends
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p>{{vm}}</p>
+      <p>{{vm.exceptions}}</p>
+      <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+  </div> <!-- col-md-4 -->
+</div> <!-- row -->
