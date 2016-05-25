@@ -29,5 +29,11 @@ exports.seed = function(knex, Promise) {
       shop_interval: 4,
       shop_freq: 'days'
     });
+  })
+  .then(function () {
+    return knex('users').insert({
+      email: 'test@test.com',
+      pword: 'pass'
+    })
   });
 };
