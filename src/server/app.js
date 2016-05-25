@@ -12,6 +12,7 @@ var swig = require('swig');
 var routes = require('./routes/index.js');
 var listsRoute = require('./routes/lists.js');
 var groceriesRoute = require('./routes/groceries.js');
+var usersRoute = require('./routes/users.js')
 
 
 // *** express instance *** //
@@ -40,6 +41,7 @@ app.use(express.static(path.join(__dirname, '../client')));
 app.use('/', routes);
 app.use('/lists', listsRoute);
 app.use('/groceries', groceriesRoute);
+app.use('/users', usersRoute)
 
 
 // catch 404 and forward to error handler
