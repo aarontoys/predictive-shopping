@@ -46,15 +46,32 @@
 
     vm.submit = function () {
       console.log(vm);
-      console.log(Object.keys(vm.shopDays));
+      console.log('t/f:', !!vm.shopDays);
       console.log(buildSchedule(vm.shopDays));
     }
 
 
     function buildSchedule (daysObj) {
-      return Object.keys(daysObj).map(function(el) {
-        return dayKeys[el]
-      })
+      // console.log(Object.values(daysObj));
+      // if(daysObj) {
+      //   return Object.keys(daysObj).map(function(el) {
+      //     if (daysObj[el]) {
+      //       return dayKeys[el]
+      //     }
+      //   }).filter(function(el) {
+      //     return el >= 1;
+      //   })
+      // }
+      var arr = []
+      if(daysObj) {
+        Object.keys(daysObj).reduce(function(arr, cur) {
+          if( daysObj[cur] ){
+            arr.push(dayKeys[cur])
+          }
+          return arr;
+        }, arr);
+      }
+      return arr;
     }
 
 
