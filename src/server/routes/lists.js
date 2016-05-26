@@ -16,7 +16,7 @@ function getLists (req, res, next) {
 }
 
 function getItems (req, res, next) {
-  lists.getAllItemsByUser()
+  lists.getAllItemsByUser(req.params.id)
   .then(function (result) {
     req.items = result
     return next();
@@ -37,7 +37,7 @@ function sendResults (req, res, next) {
 }
 
 
-router.get('/', getLists, getItems, sendResults);
+router.get('/:id', getLists, getItems, sendResults);
 
 // router.get('/', fu)
 

@@ -7,18 +7,16 @@
   listsCtrl.$inject = ['listsDataService']
 
   function listsCtrl (listsDataService) {
-    var vm = this;
-    vm.greeting = 'we are family.';
+    var vm = this,
+        id = 1;
 
-    console.log(getLists());
+    getLists(id);
 
-    function getLists () {
-      listsDataService.getLists()
+    function getLists (id) {
+      listsDataService.getLists(id)
       .then(function (lists) {
-        console.log('lists: ', lists);
         vm.lists = lists.data.lists;
         vm.items = lists.data.items;
-        console.log(vm.lists);
       })
       .catch(function (err) {
         return next(err);

@@ -6,8 +6,8 @@ function getAllLists () {
   return Lists();
 }
 
-function getAllItemsByUser () {
-  return listItems().where('user_id',1);
+function getAllItemsByUser (id) {
+  return listItems().where('user_id',id);
 }
 
 module.exports = {

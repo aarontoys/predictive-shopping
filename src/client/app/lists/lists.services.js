@@ -8,8 +8,8 @@
 
   function listsDataService ($http) {
     return {
-      getLists: function () {
-        return $http.get('/lists')
+      getLists: function (id) {
+        return $http.get('/lists/'+id)
         .then(function(res) {
           return res;
         })
