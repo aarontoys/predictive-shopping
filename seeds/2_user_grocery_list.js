@@ -14,8 +14,8 @@ exports.seed = function(knex, Promise) {
     return knex('user_grocery_items').insert({
       user_id: 1,
       grocery_id: 1863,
-      repeat_interval: 4,
-      repeat_freq: 'days',
+      schedule_type: 1,
+      schedule: JSON.stringify(['2016-05-06T19:46:14.684Z',3]),
       semantic_name: 'eggs'
     })
   })
@@ -23,8 +23,8 @@ exports.seed = function(knex, Promise) {
     return knex('user_grocery_items').insert({
       user_id: 1,
       grocery_id: 1864,
-      repeat_interval: 4,
-      repeat_freq: 'days',
+      schedule_type: 1,
+      schedule: JSON.stringify(['2016-05-06T19:46:14.684Z',3]),
       semantic_name: 'milk'
     })
   })
@@ -32,8 +32,8 @@ exports.seed = function(knex, Promise) {
     return knex('user_grocery_items').insert({
       user_id: 1,
       grocery_id: 1865,
-      repeat_interval: 4,
-      repeat_freq: 'days',
+      schedule_type: 1,
+      schedule: JSON.stringify(['2016-05-06T19:46:14.684Z',3]),
       semantic_name: 'bread'
     })
   })
@@ -41,8 +41,8 @@ exports.seed = function(knex, Promise) {
     return knex('user_grocery_items').insert({
       user_id: 1,
       grocery_id: 1866,
-      repeat_interval: 4,
-      repeat_freq: 'days',
+      schedule_type: 1,
+      schedule: JSON.stringify(['2016-05-06T19:46:14.684Z',3]),
       semantic_name: 'peanut butter'
     })
   })
@@ -50,8 +50,8 @@ exports.seed = function(knex, Promise) {
     return knex('user_grocery_items').insert({
       user_id: 1,
       grocery_id: 1867,
-      repeat_interval: 4,
-      repeat_freq: 'days',
+      schedule_type: 1,
+      schedule: JSON.stringify(['2016-05-06T19:46:14.684Z',3]),
       semantic_name: 'jam'
     })
   })
@@ -59,8 +59,8 @@ exports.seed = function(knex, Promise) {
     return knex('user_grocery_items').insert({
       user_id: 1,
       grocery_id: 1868,
-      repeat_interval: 4,
-      repeat_freq: 'days',
+      schedule_type: 1,
+      schedule: JSON.stringify(['2016-05-06T19:46:14.684Z',3]),
       semantic_name: 'cake'
     })
   })
@@ -68,8 +68,8 @@ exports.seed = function(knex, Promise) {
     return knex('user_grocery_items').insert({
       user_id: 2,
       grocery_id: 1869,
-      repeat_interval: 4,
-      repeat_freq: 'days',
+      schedule_type: 1,
+      schedule: JSON.stringify(['2016-05-06T19:46:14.684Z',3]),
       semantic_name: 'toilet paper'
     })
   })
@@ -77,8 +77,8 @@ exports.seed = function(knex, Promise) {
     return knex('user_grocery_items').insert({
       user_id: 2,
       grocery_id: 1870,
-      repeat_interval: 4,
-      repeat_freq: 'days',
+      schedule_type: 1,
+      schedule: JSON.stringify(['2016-05-06T19:46:14.684Z',3]),
       semantic_name: 'shampoo'
     })
   })
@@ -86,8 +86,8 @@ exports.seed = function(knex, Promise) {
     return knex('user_grocery_items').insert({
       user_id: 2,
       grocery_id: 1871,
-      repeat_interval: 4,
-      repeat_freq: 'days',
+      schedule_type: 1,
+      schedule: JSON.stringify(['2016-05-06T19:46:14.684Z',3]),
       semantic_name: 'soap'
     })
   })
