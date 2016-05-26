@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var later = require('later');
 
 var lists = require('../db/listsQueries');
 var listItems = require('../db/listsQueries');
@@ -9,7 +10,6 @@ function getLists (req, res, next) {
     lists.getAllLists()
     .then(function (result) {
       req.lists = result;
-      console.log('line12',req.lists)
       return next();
     })
     .catch(function (err) {
@@ -33,7 +33,6 @@ function getListDates (req, res, next) {
   .then(function (result) {
     req.occurances = result[0].occurances;
     addOccurances(req.lists, req.occurances);
-    console.log('line38',req.lists);
     return next();
   })
   .catch(function (err) {
@@ -58,7 +57,7 @@ router.get('/:id', getLists, getItems, getListDates, sendResults);
 function addOccurances (arr1, arr2) {
   return arr1.map(function (obj, index) {
     if ( arr2[index] ) {
-      obj.occurs = arr2[index].toLocaleString();
+      obj.occurs = later.day.end(arr2[index]);
     } 
   });
 };
