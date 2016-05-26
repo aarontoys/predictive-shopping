@@ -1,4 +1,5 @@
 var knex = require('./knex');
+var sched = require('../utils/schedule');
 var Users = function () {return knex('users');};
 
 function getAllUsers () {
@@ -6,7 +7,13 @@ function getAllUsers () {
 }
 
 function getSingleUser (id) {
-  return Users().where('id',id);
+  return Users().where('id',id)
+  .then(function(result) {
+    var schedule = sched.createSchedule(result[0].schedule_type, result[0].schedule);
+    var occurances = sched.createOccurances(schedule);
+    result[0].occurances = occurances;
+    return result;
+  });
 }
 
 function updateUser (id, fname, lname, email, schedule_type, schedule) {
