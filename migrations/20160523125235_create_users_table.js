@@ -6,8 +6,8 @@ exports.up = function(knex, Promise) {
     table.string('lname');
     table.string('email').notNullable().unique();
     table.string('pword').notNullable();
-    table.string('schedule_type');
-    table.string('schedule');
+    table.integer('schedule_type');
+    table.json('schedule');
   })
 };
 

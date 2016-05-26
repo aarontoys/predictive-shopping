@@ -16,8 +16,8 @@ exports.seed = function(knex, Promise) {
       lname: 'Toys',
       email: 'aarontoys@gmail.com',
       pword: 'pass',
-      schedule_type: 'b',
-      schedule: '[2,5]'
+      schedule_type: 0,
+      schedule: JSON.stringify([2,5])
     });
   })
   .then(function () {
@@ -26,14 +26,16 @@ exports.seed = function(knex, Promise) {
       lname: 'Toys',
       email: 'nickistruck@yahoo.com',
       pword: 'pass',
-      schedule_type: 'b',
-      schedule: '[2,5]'
+      schedule_type: 0,
+      schedule: JSON.stringify([3,6])
     });
   })
   .then(function () {
     return knex('users').insert({
       email: 'test@test.com',
-      pword: 'pass'
+      pword: 'pass',
+      schedule_type: 1,
+      schedule: JSON.stringify(['2016-05-06T19:46:14.684Z',10])
     })
   });
 };
