@@ -1,4 +1,12 @@
 <div class="row">
+  <select ng-model="vm.userId" ng-change="vm.getLists(vm.userId)">
+    <option value="1" selected>1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+  </select>
+  <p>User Id: {{vm.userId}}</p>
+</div>
+<div class="row">
   <div class="col-md-3" ng-repeat="list in vm.lists">
     <p class="text-center"><strong>{{list.name}}  {{list.id}}</strong></p>
     <p>{{list.occurs | date:'medium'}}</p>
