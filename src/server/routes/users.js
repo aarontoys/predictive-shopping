@@ -30,4 +30,20 @@ router.get('/:id', function (req, res, next) {
   });
 });
 
+router.post('/edit/:id', function (req, res, next) {
+  console.log('edit route');
+  var b = req.body
+  console.log(b);
+  userQueries.updateUser(req.params.id, b.fname, b.lname, b.email, b.schedule_type, b.schedule)
+  .then(function () {
+    // console.log('line39',result);
+    res.status(200).json({
+      status: 'success'
+    });
+  })
+  .catch(function (err) {
+    return next(err);
+  });
+});
+
 module.exports = router;
