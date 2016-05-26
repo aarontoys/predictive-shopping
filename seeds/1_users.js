@@ -16,8 +16,8 @@ exports.seed = function(knex, Promise) {
       lname: 'Toys',
       email: 'aarontoys@gmail.com',
       pword: 'pass',
-      shop_interval: 3,
-      shop_freq: 'days'
+      schedule_type: 'b',
+      schedule: '[2,5]'
     });
   })
   .then(function () {
@@ -26,8 +26,8 @@ exports.seed = function(knex, Promise) {
       lname: 'Toys',
       email: 'nickistruck@yahoo.com',
       pword: 'pass',
-      shop_interval: 4,
-      shop_freq: 'days'
+      schedule_type: 'b',
+      schedule: '[2,5]'
     });
   })
   .then(function () {
