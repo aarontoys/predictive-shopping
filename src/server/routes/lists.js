@@ -27,8 +27,8 @@ function getItems (req, res, next) {
 }
 
 function sendResults (req, res, next) {
-  console.log('lists',req.lists);
-  console.log('items',req.items);
+  // console.log('lists',req.lists);
+  // console.log('items',req.items);
   res.status(200).json({
     status: 'success',
     lists: req.lists,
