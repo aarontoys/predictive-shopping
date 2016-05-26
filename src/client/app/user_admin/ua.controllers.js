@@ -67,16 +67,14 @@
       //     return el >= 1;
       //   })
       // }
-      var arr = []
       if(daysObj) {
-        Object.keys(daysObj).reduce(function(arr, cur) {
+        return Object.keys(daysObj).reduce(function(arr, cur) {
           if( daysObj[cur] ){
             arr.push(dayKeys[cur])
           }
           return arr;
-        }, arr);
-      }
-      return arr;
+        }, []);
+      } else { return []; }
     }
 
 
