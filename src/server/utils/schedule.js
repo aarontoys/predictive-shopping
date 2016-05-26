@@ -6,7 +6,7 @@ var sched = {};
 
 function createSchedule (type, schedule) {
   sched = {
-    schedules: [{d: [2,5]}],
+    schedules: [{[type]: JSON.parse(schedule)}],
     exceptions: []
   }
   return sched;
