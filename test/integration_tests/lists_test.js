@@ -45,10 +45,11 @@ describe('habitList routes', function() {
         res.status.should.equal(200);
         res.type.should.equal('application/json');
         res.body.should.be.a('object');
-        res.body.should.have.property('data')
-        res.body.status.should.equal('success')
-        res.body.data.length.should.equal(4);
-        res.body.data[0].name.should.equal('Current List');
+        res.body.should.have.property('lists');
+        res.body.should.have.property('items');
+        res.body.status.should.equal('success');
+        res.body.lists.length.should.equal(4);
+        res.body.lists[0].name.should.equal('Current List');
         // res.body.data[0].description.should.equal('Say the Shema and before and after brochos twice daily at the propper time');
         // res.body.data[0].interval.should.equal(2);
         // res.body.data[0].period.should.equal('daily');
