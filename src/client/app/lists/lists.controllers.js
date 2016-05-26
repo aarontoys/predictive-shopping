@@ -8,9 +8,9 @@
 
   function listsCtrl (listsDataService) {
     var vm = this,
-        id = 1;
+        userId = 1;
 
-    getLists(id);
+    getLists(userId);
 
     function getLists (id) {
       listsDataService.getLists(id)
