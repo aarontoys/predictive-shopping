@@ -45,9 +45,14 @@
     }
 
     vm.submit = function () {
+      // console.log(vm);
+      // console.log('t/f:', !!vm.shopDays);
+      // console.log(buildSchedule(vm.shopDays));
+      vm.id = 3;
+      vm.schedule = buildSchedule(vm.shopDays);
+      vm.schedule_type = 'b';
       console.log(vm);
-      console.log('t/f:', !!vm.shopDays);
-      console.log(buildSchedule(vm.shopDays));
+      uaService.updateUser(vm)
     }
 
 
