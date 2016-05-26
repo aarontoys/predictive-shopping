@@ -11,10 +11,10 @@
       getSingleUser: function (id) {
         return $http.get('/users/'+id)
         .then(function (res) {
-          return res
+          return res;
         })
         .catch(function (err) {
-          return err
+          return err;
         });
       },
       updateUser: function (userDetails) {
