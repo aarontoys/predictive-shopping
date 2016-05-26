@@ -50,7 +50,7 @@
       // console.log(buildSchedule(vm.shopDays));
       vm.id = 3;
       vm.schedule = buildSchedule(vm.shopDays);
-      vm.schedule_type = 'b';
+      vm.schedule_type = 0;
       console.log(vm);
       uaService.updateUser(vm)
     }
