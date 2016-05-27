@@ -5,6 +5,9 @@ later.date.localTime();
 var sched = {};
 var listCount = 3;
 
+//hard coded list count (line55) - think this also impacts item count since using same fxns.
+//also poping off last occurance if more than 3 occrurances - also impacting item shcedule.
+
 function createOccurances (result) {
 
     result.forEach(function(el) {
@@ -33,9 +36,9 @@ function daySchedule (startDate, interval) {
     }  
     startDate = new Date(startDate.getTime() + (interval*later.DAY));
   }
-  if (arr.lenght === 4) {
-    arr.pop()
-  }
+  // if (arr.length === 4) {
+  //   arr.pop()
+  // }
   return arr;
 };
 
@@ -49,7 +52,8 @@ function createSchedule (type, schedule) {
 
 function laterOccurances (schedInst) {
   var d = new Date();
-  var occurs = later.schedule(schedInst).next(3, d);
+  var occurs = later.schedule(schedInst).next(5, d);
+  // console.log('line56',occurs)
   return occurs;
 }
 
@@ -61,7 +65,44 @@ function addOccurances (arr1, arr2) {
   });
 };
 
+function addItems (listArr, occArr, itemArr) {
+  // console.log('listArr', listArr)
+  // console.log('occArr', occArr)
+  // console.log('itemArr', itemArr)
+
+  // var itemArr = [{ occurrences: ["2016-01-01", "2016-02-01"] }, { occurrences: [] }]
+  // itemArr.map((item) => {
+  //   item.occurrences = item.occurrences.filter((date) => { ... });
+  //   return item;
+  // });
+
+  var test = occArr.map(function(occEl, occIndex, occArr) {
+    // console.log(occEl);
+    // console.log(occIndex, occArr.length);
+    if(occIndex <= occArr.length - 2) {
+      // console.log('stop: reached second to last index:' + occIndex + ', ' + occArr.length);
+      var items = itemArr.map(function(item, itemIndex) {
+        var filteredDates = item.occurances.filter(function(itemOcc) {
+          // console.log('line81',typeof itemOcc);
+          // console.log('line82',typeof occEl);
+          // var mutItemOcc  = itemOcc
+          // mutItemOcc = later.day.end(mutItemOcc);
+          // mmmm = later.day.end(itemOcc);
+          // console.log(mutItemOcc);
+          return new Date(itemOcc) >= new Date(occEl) && new Date (itemOcc) < new Date (occArr[occIndex+1]);
+        })
+        
+        item.occurances = filteredDates;
+        return item;
+      })
+
+      console.log('itemArr', items);
+    }
+  })
+}
+
 module.exports = {
   createOccurances: createOccurances,
-  addOccurances: addOccurances
+  addOccurances: addOccurances,
+  addItems: addItems
 }
