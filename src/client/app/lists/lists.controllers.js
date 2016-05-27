@@ -20,6 +20,8 @@
       .then(function (lists) {
         vm.lists = lists.data.lists;
         vm.items = lists.data.items;
+        console.log(vm.lists);
+        console.log(vm.items);
       })
       .catch(function (err) {
         return next(err);
