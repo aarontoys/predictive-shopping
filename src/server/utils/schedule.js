@@ -5,19 +5,23 @@ later.date.localTime();
 var sched = {};
 var listCount = 3;
 
-function createOccurances (int, arr) {
-  var occurances = []
-  switch(int) {
-    case 0:  
-      int = 'd'    
-      occurances = laterOccurances(createSchedule(int, arr));    
-      break;
-    case 1:      
-      date = arr[0];    
-      interval = arr[1];    
-      occurances = daySchedule(date, interval);    
-  }
-  return occurances
+function createOccurances (result) {
+
+    result.forEach(function(el) {
+      var int = el.schedule_type;
+      var arr = el.schedule;
+      switch(int) {
+        case 0:  
+          int = 'd'    
+          el.occurances = laterOccurances(createSchedule(int, arr));    
+          break;
+        case 1: 
+          date = arr[0];    
+          interval = arr[1];    
+          el.occurances = daySchedule(date, interval);    
+      }
+    })
+  return result;
 }
 
 function daySchedule (startDate, interval) {
