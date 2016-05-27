@@ -1,10 +1,12 @@
 var express = require('express');
 var router = express.Router();
-var later = require('later');
 
 var lists = require('../db/listsQueries');
 var listItems = require('../db/listsQueries');
 var userQueries = require('../db/userQueries');
+var sched = require('../utils/schedule.js');
+
+router.get('/:id', getLists, getItems, getListDates, sendResults);
 
 function getLists (req, res, next) {
     lists.getAllLists()
@@ -32,7 +34,7 @@ function getListDates (req, res, next) {
   userQueries.getSingleUser(req.params.id)
   .then(function (result) {
     req.occurances = result[0].occurances;
-    addOccurances(req.lists, req.occurances);
+    sched.addOccurances(req.lists, req.occurances);
     return next();
   })
   .catch(function (err) {
@@ -48,29 +50,4 @@ function sendResults (req, res, next) {
   });
 }
 
-
-router.get('/:id', getLists, getItems, getListDates, sendResults);
-
-
-function addOccurances (arr1, arr2) {
-  return arr1.map(function (obj, index) {
-    if ( arr2[index] ) {
-      obj.occurs = later.day.end(arr2[index]);
-    } 
-  });
-};
-
 module.exports = router;
-
-// router.get('/', function (req, res, next) {
-//   decks.getAllDecks()
-//     .then(function (results){
-//       res.status(200).json({
-//         status: 'success',
-//         data: results
-//       });
-//     })
-//     .catch(function (err) {
-//       return next(err);
-//     })
-// });

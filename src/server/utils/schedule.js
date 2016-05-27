@@ -49,6 +49,15 @@ function laterOccurances (schedInst) {
   return occurs;
 }
 
+function addOccurances (arr1, arr2) {
+  return arr1.map(function (obj, index) {
+    if ( arr2[index] ) {
+      obj.occurs = later.day.end(arr2[index]);
+    } 
+  });
+};
+
 module.exports = {
-  createOccurances: createOccurances
+  createOccurances: createOccurances,
+  addOccurances: addOccurances
 }
