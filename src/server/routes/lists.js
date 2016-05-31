@@ -51,7 +51,7 @@ function appendListDates (req, res, next) {
     req.occurrences = result[0].occurrences;
     sched.addOccurrences(req.lists, req.occurrences);
     sched.addItems(req.lists, req.occurrences, req.items);
-    sched.combineItems(req.lists)
+    // sched.combineItems(req.lists)
     
     // console.log('line 40', req.test[0]);
     return next();

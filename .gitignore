@@ -2,3 +2,4 @@ node_modules/
 .DS_Store
 npm-debug.log
 src/client/js/laterDays.js
+src/server/utils/test*
