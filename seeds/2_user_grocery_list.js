@@ -15,7 +15,7 @@ exports.seed = function(knex, Promise) {
       user_id: 1,
       grocery_id: 1863,
       schedule_type: 1,
-      schedule: JSON.stringify(['2016-05-06T19:46:14.684Z',3]),
+      schedule: JSON.stringify(['2016-05-06T19:46:14.684Z',1]),
       semantic_name: 'eggs'
     })
   })
@@ -24,7 +24,7 @@ exports.seed = function(knex, Promise) {
       user_id: 1,
       grocery_id: 1864,
       schedule_type: 1,
-      schedule: JSON.stringify(['2016-05-06T19:46:14.684Z',3]),
+      schedule: JSON.stringify(['2016-05-06T19:46:14.684Z',2]),
       semantic_name: 'milk'
     })
   })
@@ -42,7 +42,7 @@ exports.seed = function(knex, Promise) {
       user_id: 1,
       grocery_id: 1866,
       schedule_type: 1,
-      schedule: JSON.stringify(['2016-05-06T19:46:14.684Z',3]),
+      schedule: JSON.stringify(['2016-05-06T19:46:14.684Z',4]),
       semantic_name: 'peanut butter'
     })
   })
@@ -51,7 +51,7 @@ exports.seed = function(knex, Promise) {
       user_id: 1,
       grocery_id: 1867,
       schedule_type: 1,
-      schedule: JSON.stringify(['2016-05-06T19:46:14.684Z',3]),
+      schedule: JSON.stringify(['2016-05-06T19:46:14.684Z',5]),
       semantic_name: 'jam'
     })
   })
@@ -60,7 +60,7 @@ exports.seed = function(knex, Promise) {
       user_id: 1,
       grocery_id: 1868,
       schedule_type: 1,
-      schedule: JSON.stringify(['2016-05-06T19:46:14.684Z',3]),
+      schedule: JSON.stringify(['2016-05-14T19:46:14.684Z',31]),
       semantic_name: 'cake'
     })
   })
