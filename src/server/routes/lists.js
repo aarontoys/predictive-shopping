@@ -6,7 +6,7 @@ var listItems = require('../db/listsQueries');
 var userQueries = require('../db/userQueries');
 var sched = require('../utils/schedule.js');
 
-router.get('/:id', getLists, getItems, getListDates, sendResults);
+router.get('/:id', getLists, getListDates, getItems, appendListDates, reduceList, sendResults);
 
 function getLists (req, res, next) {
     lists.getAllLists()
@@ -18,6 +18,18 @@ function getLists (req, res, next) {
     .catch(function (err) {
       return next(err);
     })
+}
+
+function getListDates (req, res, next) {
+  userQueries.getSingleUser(req.params.id)
+  .then(function(result) {
+    // console.log(result);
+    // req.dates = result;
+    return next();
+  })
+  .catch(function (err) {
+    return next(err);
+  })
 }
 
 function getItems (req, res, next) {
@@ -32,19 +44,26 @@ function getItems (req, res, next) {
   })
 }
 
-function getListDates (req, res, next) {
+function appendListDates (req, res, next) {
   userQueries.getSingleUser(req.params.id)
   .then(function (result) {
-    // console.log('line38',result[0].occurances);
-    req.occurances = result[0].occurances;
-    sched.addItems(req.lists, req.occurances, req.items);
-    sched.addOccurances(req.lists, req.occurances);
-    // console.log('line 40', result);
+    // console.log('line38',req.lists);
+    req.occurrences = result[0].occurrences;
+    sched.addOccurrences(req.lists, req.occurrences);
+    sched.addItems(req.lists, req.occurrences, req.items);
+    sched.combineItems(req.lists)
+    
+    // console.log('line 40', req.test[0]);
     return next();
   })
   .catch(function (err) {
     return next(err);
   })
+}
+
+function reduceList (req, res, next) {
+    // sched.combineItems(req.lists)
+  return next(); 
 }
 
 function sendResults (req, res, next) {
