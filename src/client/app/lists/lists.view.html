@@ -17,13 +17,14 @@
           <th class="text-center">Item Name</th> 
           <th></th>
         </tr>
-        <tr ng-repeat="item in vm.items"> <!--  | filter:{id:list.id} -->
+        <!-- <tr ng-repeat="item in vm.items | filter:{id:list.id}"> -->
+        <tr ng-repeat="item in list.items"> <!-- | dateFilter:list.occurs"> -->
           <td class="col-1">
             <button type="button" class="btn btn-success btn-xs">
               <span class="glyphicon glyphicon-ok"></span>
             </button>
           </td>
-          <td class="col-2">{{item.semantic_name}} {{item.id}} {{list.id}}</td>
+          <td class="col-2">{{item.semantic_name}} x{{item.count}}</td>
           <td class="col-3">
             <button type="button" class="btn btn-primary btn-xs move-right glyphicon glyphicon-arrow-right"></button>
           </td>
