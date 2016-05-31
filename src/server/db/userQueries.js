@@ -9,7 +9,8 @@ function getAllUsers () {
 function getSingleUser (id) {
   return Users().where('id',id)
   .then(function(result) {
-    result = sched.createOccurances(result); 
+    // console.log('line12',result);
+    result = sched.createOccurrences(result); 
     return result;
   });
 }

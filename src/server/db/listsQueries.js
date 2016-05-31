@@ -11,7 +11,8 @@ function getAllLists () {
 function getAllItemsByUser (id) {
   return listItems().where('user_id',id)
   .then(function(results) {
-    results = sched.createOccurances(results);
+    // console.log(results);
+    results = sched.createOccurrences(results);
     return results;
   })
 }
