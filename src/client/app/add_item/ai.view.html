@@ -1,0 +1,69 @@
+<div class="row">
+<p>test</p>
+  <div class="col-md-6 col-md-offset-3">
+    <form class="form-horizontal" ng-submit="vm.lookupBarcode()">
+      <div class="form-group">
+        <label class="col-md-3 control-label">Barcode:</label>
+        <div class="col-md-9">
+          <input ng-model="vm.barcode" class="form-control" type="text" placeholder="049000000443">
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</div> <!-- row -->
+<div class="row">
+  <div class="col-md-6">
+
+    <h3>{{vm.brand}}</h3>
+    <p>{{vm.title}}</p>
+    <img ng-src="{{vm.imageUrl}}">
+  </div>
+  <div class="col-md-6" ng-show="vm.show">
+    <form ng-submit="vm.addItem()">
+      <div class="form-group">
+        <label>What do you call this?</label>
+        <input ng-model="vm.semName" class="form-control" type="text">
+      </div>
+      <div class="form-group">
+        <label>What shop do you want to add this to?</label>
+      </div>
+        <div class="radio">
+          <label>
+            <input ng-model="vm.selList" type="radio"   value="{{vm.current}}">
+            {{vm.current | date:'medium'}}
+          </label>
+        </div>
+        <div class="radio">
+          <label>
+            <input ng-model="vm.selList" type="radio"  value="{{vm.next}}">
+            {{vm.next | date:'medium'}}
+          </label>
+        </div>
+        <div class="radio">
+          <label>
+            <input ng-model="vm.selList" type="radio"   value="{{vm.following}}">
+            {{vm.following | date:'medium'}}
+          </label>
+        </div>
+        <div class="radio">
+          <label>
+            <input ng-model="vm.selList" type="radio"  value="{{vm.hold}}">
+            {{vm.hold | date:'medium'}}
+          </label>
+        </div>
+        <p>{{vm.selList}}</p>
+      <!-- </div> -->
+      <div class="form-group">
+      <label>On average, I need this</label>
+      <br>
+        <div class="col-md-1">every</div>
+        <div class="col-md-10">
+          <input ng-model="vm.freq" class="form-control" type="number">
+        </div> 
+        <div class="col-md-1">days.</div>
+      </div>
+      <button type="submit" class="btn btn-success">Add Item</button>
+    </form>
+  </div>
+</div> <!-- row -->

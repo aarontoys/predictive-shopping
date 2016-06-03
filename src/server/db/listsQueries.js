@@ -17,7 +17,18 @@ function getAllItemsByUser (id) {
   })
 }
 
+function addItem (id, semName, schedule_type, schedule) {
+  return listItems()
+  .insert({
+    user_id: id,
+    semantic_name: semName,
+    schedule_type: schedule_type,
+    schedule: JSON.stringify(schedule)
+  })
+}
+
 module.exports = {
   getAllLists: getAllLists,
-  getAllItemsByUser: getAllItemsByUser
+  getAllItemsByUser: getAllItemsByUser,
+  addItem: addItem
 }

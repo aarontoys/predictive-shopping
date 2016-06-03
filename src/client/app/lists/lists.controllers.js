@@ -11,6 +11,7 @@
     
     vm.userId =1;
     console.log(vm.userId);
+    console.log('in my main project!!!')
 
     getLists(vm.userId);
 

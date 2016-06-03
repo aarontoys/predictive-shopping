@@ -13,6 +13,7 @@ var routes = require('./routes/index.js');
 var listsRoute = require('./routes/lists.js');
 var groceriesRoute = require('./routes/groceries.js');
 var usersRoute = require('./routes/users.js')
+var addItemRoute = require('./routes/addItem.js')
 
 
 // *** express instance *** //
@@ -36,12 +37,19 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../client')));
 
+// *** allow CORS *** //
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 
 // *** main routes *** //
 app.use('/', routes);
 app.use('/lists', listsRoute);
 app.use('/groceries', groceriesRoute);
-app.use('/users', usersRoute)
+app.use('/users', usersRoute);
+app.use('/addItem', addItemRoute);
 
 
 // catch 404 and forward to error handler

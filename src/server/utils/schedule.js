@@ -71,6 +71,12 @@ function addOccurrences (arr1, arr2) {
   });
 };
 
+function compareToListDate (listDate) {
+  return function (item, index) {
+    // put your code for the forEach
+  }
+}
+
 function addItems (listArr, occArr, itemArr) {
   // console.log('listArr', listArr)
   // console.log('occArr', occArr)
@@ -89,6 +95,7 @@ function addItems (listArr, occArr, itemArr) {
         var allItemsArr = [];
         var dates = []
         itemArr.forEach(function (obj, objIndex, itemObj) {
+          // var itemFilter = obj.occurrences.forEach(compareToListDate(occArr[occIndex+1]))
           var itemFilter = obj.occurrences.forEach(function(el, index, occObj) {
             // console.log('line92',index, el, itemObj);
             itemDate = new Date(el);

@@ -15,6 +15,9 @@ function config ($routeProvider, $locationProvider) {
     .when('/account', {
       template: '<div user-admin></div>'
       // controller: MyGeneralController
+    })
+    .when('/addItem', {
+      template: '<div add-item></div>'
     });
 
   // $locationProvider.html5Mode(true);
