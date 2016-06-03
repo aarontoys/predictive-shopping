@@ -4,4 +4,5 @@ npm-debug.log
 src/client/js/laterDays.js
 src/server/utils/test*
 src/server/utils/_config.js
+.env
 

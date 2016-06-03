@@ -4,7 +4,9 @@ var request = require('request-promise');
 
 // var groceries = require('../db/groceriesQueries');
 var listItems = require('../db/listsQueries');
-var api = require('../utils/_config');
+// var api = require('../utils/_config');
+var apikey = process.env.API_KEY
+var apiid = process.env.API_ID
 
 
 router.get('/', function(req, res, next) {
@@ -24,11 +26,12 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/:barcode', function(req, res, next) {
-  console.log(api.id);
-  console.log(api.key);
+  console.log(process.env.API_KEY);
+  console.log(process.env.API_ID);
+
   console.log(req.params.barcode);
   barcode = req.params.barcode
-  request('https://api.indix.com/v2/summary/products?countryCode=US&upc='+barcode+'&app_id='+api.id+'&app_key='+api.key)
+  request('https://api.indix.com/v2/summary/products?countryCode=US&upc='+barcode+'&app_id='+apiid+'&app_key='+apikey)
   .then(function(data) {
     // console.log(JSON.parse(data).result);
     res.status(200).json({
