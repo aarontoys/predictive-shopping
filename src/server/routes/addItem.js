@@ -36,7 +36,7 @@ router.get('/:barcode', function(req, res, next) {
     // console.log(JSON.parse(data).result);
     res.status(200).json({
       status: 'success',
-      product: JSON.parse(data).result.products[0]
+      product: JSON.parse(data).result.products
     })
   })
 });
