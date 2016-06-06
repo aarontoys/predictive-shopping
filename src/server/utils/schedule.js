@@ -69,7 +69,8 @@ function laterOccurrences (schedInst) {
 function addOccurrences (arr1, arr2) {
   return arr1.map(function (obj, index) {
     if ( arr2[index] ) {
-      obj.occurs = later.day.end(arr2[index]);
+      // obj.occurs = later.day.end(arr2[index]);
+      obj.occurs = arr2[index];
     } 
   });
 };
