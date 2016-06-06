@@ -51,4 +51,13 @@ router.post('/', function(req, res, next) {
   })
 })
 
+router.post('/update/:id', function (req, res, next) {
+  listItems.updateItemSchedule(req.params.id, req.body.schedule)
+  .then(function() {
+    res.status(200).json({
+      status: 'success'
+    })
+  })
+})
+
 module.exports = router;

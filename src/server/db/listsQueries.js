@@ -27,8 +27,16 @@ function addItem (id, semName, schedule_type, schedule) {
   })
 }
 
+function updateItemSchedule (id, schedule) {
+  return listItems().where('id',id)
+  .update({
+    schedule: JSON.stringify(schedule)
+  })
+}
+
 module.exports = {
   getAllLists: getAllLists,
   getAllItemsByUser: getAllItemsByUser,
-  addItem: addItem
+  addItem: addItem,
+  updateItemSchedule: updateItemSchedule
 }
