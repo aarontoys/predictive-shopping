@@ -60,7 +60,10 @@ function laterOccurrences (schedInst) {
   var d = new Date();
   var occurs = later.schedule(schedInst).next(5, d);
   // console.log('line56',occurs)
-  return occurs;
+  return occurs.map(function(el) {
+    return later.day.end(el);
+  })
+  // return occurs;
 }
 
 function addOccurrences (arr1, arr2) {
