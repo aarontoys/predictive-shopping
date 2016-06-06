@@ -1,6 +1,6 @@
 var later = require('later');
 
-// later.date.localTime();
+later.date.localTime();
 
 var sched = {};
 var listCount = 3;
