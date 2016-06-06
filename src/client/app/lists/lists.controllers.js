@@ -26,12 +26,28 @@
       .then(function (lists) {
         vm.lists = lists.data.lists;
         vm.items = lists.data.items;
-        console.log(vm.lists);
+        consolidate(vm.lists)
       })
       .catch(function (err) {
         return next(err);
       });
     };
+
+    function consolidate (listArr) {
+      return listArr.map(function(eachList) {
+        var result = eachList.items.reduce(function(prev,curr,index) {
+          if (prev.length && prev[prev.length-1].id === curr.id) {
+            prev[prev.length-1].count++;
+          } else {
+            curr.count = 1;
+            prev.push(curr)
+          }
+          return prev;
+        }, [])
+        eachList.items = result
+        return eachList;
+      });
+    }
   }
 
 })();
