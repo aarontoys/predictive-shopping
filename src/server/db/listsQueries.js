@@ -12,7 +12,7 @@ function getAllItemsByUser (id) {
   console.log('line12',id);
   return listItems().where('user_id',id)
   .then(function(results) {
-    // console.log(results);
+    console.log('line15',results);
     results = sched.createOccurrences(results);
     return results;
   })
