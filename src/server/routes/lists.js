@@ -12,7 +12,7 @@ function getLists (req, res, next) {
     lists.getAllLists()
     .then(function (result) {
       req.lists = result;
-      // console.log('line14 lists',req.lists);
+      console.log('line14 lists',req.lists);
       return next();
     })
     .catch(function (err) {
@@ -23,7 +23,7 @@ function getLists (req, res, next) {
 function getListDates (req, res, next) {
   userQueries.getSingleUser(req.params.id)
   .then(function(result) {
-    // console.log(result);
+    console.log('line26',result);
     // req.dates = result;
     return next();
   })
@@ -36,7 +36,7 @@ function getItems (req, res, next) {
   lists.getAllItemsByUser(req.params.id)
   .then(function (result) {
     req.items = result;
-    // console.log('line26 items',req.items);
+    console.log('line39 items',req.items);
     return next();
   })
   .catch(function (err) {
