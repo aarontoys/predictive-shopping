@@ -108,6 +108,7 @@ function addItems (listArr, occArr, itemArr) {
     })
 
     listObj.items = itemListArr[listIndex]
+    listObj.status = 1;
     // listObj.dates = dates[listIndex]
   });
 
