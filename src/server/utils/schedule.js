@@ -26,10 +26,12 @@ function createOccurrences (result) {
           el.occurrences = daySchedule(date, interval);    
       }
     })
+  console.log('sched line29')
   return result;
 }
 
 function daySchedule (startDate, interval) {
+  console.log('sched line34')
   var arr = [];
   startDate = new Date(startDate);
   // console.log(startDate);
@@ -45,10 +47,12 @@ function daySchedule (startDate, interval) {
   // if (arr.length === 4) {
   //   arr.pop()
   // }
+  console.log('sched line50')
   return arr;
 };
 
 function createSchedule (type, schedule) {
+  console.log('sched line55')
   sched = {
     schedules: [{[type]: schedule}],
     exceptions: []
@@ -57,6 +61,7 @@ function createSchedule (type, schedule) {
 };
 
 function laterOccurrences (schedInst) {
+  console.log('sched line64')
   var d = new Date();
   var occurs = later.schedule(schedInst).next(5, d);
   // console.log('line56',occurs)
