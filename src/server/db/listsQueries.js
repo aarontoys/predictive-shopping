@@ -16,6 +16,10 @@ function getAllItemsByUser (id) {
     results = sched.createOccurrences(results);
     return results;
   })
+  .catch(function(err) {
+    console.log(err);
+    return err
+  })
 }
 
 function addItem (id, semName, schedule_type, schedule) {
