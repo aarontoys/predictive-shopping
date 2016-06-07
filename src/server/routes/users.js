@@ -4,17 +4,17 @@ var router = express.Router();
 var userQueries = require('../db/userQueries');
 
 router.get('/', function (req, res, next) {
-  res.send('hi mike');
-  // userQueries.getAllUsers()
-  // .then(function (results) {
-  //   res.status(200).json({
-  //     status: 'success',
-  //     users: results
-  //   });
-  // })
-  // .catch(function (err) {
-  //   return next(err);
-  // });
+  // res.send('hi mike');
+  userQueries.getAllUsers()
+  .then(function (results) {
+    res.status(200).json({
+      status: 'success',
+      users: results
+    });
+  })
+  .catch(function (err) {
+    return next(err);
+  });
 });
 
 // router.get('/:id', function (req, res, next) {
