@@ -4,7 +4,7 @@ var router = express.Router();
 var userQueries = require('../db/userQueries');
 
 router.get('/', function (req, res, next) {
-  res.send('test');
+  res.send('hi mike');
   // userQueries.getAllUsers()
   // .then(function (results) {
   //   res.status(200).json({
