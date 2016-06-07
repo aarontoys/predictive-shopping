@@ -33,6 +33,7 @@ function getListDates (req, res, next) {
 }
 
 function getItems (req, res, next) {
+  console.log('line36');
   lists.getAllItemsByUser(req.params.id)
   .then(function (result) {
     req.items = result;
