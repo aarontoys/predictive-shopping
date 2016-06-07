@@ -93,6 +93,7 @@ function addItems (listArr, occArr, itemArr) {
         var dates = []
         itemArr.forEach(function (obj, objIndex, itemObj) {
           // var itemFilter = obj.occurrences.forEach(compareToListDate(occArr[occIndex+1]))
+          obj.status = 1;
           var itemFilter = obj.occurrences.forEach(function(el, index, occObj) {
             itemDate = new Date(el);
               if(itemDate >= new Date(date) && itemDate < new Date(occArr[occIndex+1])) {
@@ -108,7 +109,6 @@ function addItems (listArr, occArr, itemArr) {
     })
 
     listObj.items = itemListArr[listIndex]
-    listObj.status = 1;
     // listObj.dates = dates[listIndex]
   });
 
