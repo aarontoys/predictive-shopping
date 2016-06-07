@@ -10,7 +10,7 @@ var lastListDate = '';
 //also poping off last occurrence if more than 3 occurrences - also impacting item shcedule.
 
 function createOccurrences (result) {
-  console.log('sched line13', result)
+  console.log('sched line13', result.length)
     result.forEach(function(el) {
       var int = el.schedule_type;
       var arr = el.schedule;
@@ -23,7 +23,8 @@ function createOccurrences (result) {
         case 1: 
           date = arr[0];    
           interval = arr[1];    
-          el.occurrences = daySchedule(date, interval);    
+          el.occurrences = daySchedule(date, interval);
+          console.log('sched line27', el.occurrences);    
       }
     })
   console.log('sched line29')
