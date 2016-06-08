@@ -26,13 +26,13 @@ function createOccurrences (result) {
         case 1: 
           date = arr[0];    
           interval = arr[1];
-          if(el.hasOwnProperty('fname')) {
-            lastListDate = (el.occurrences[el.occurrences.length-1])
-          } 
 
           console.log('line26', date, typeof date)
           console.log('line27', interval, typeof interval)
           el.occurrences = daySchedule(date, interval);
+          if(el.hasOwnProperty('fname')) {
+            lastListDate = (el.occurrences[el.occurrences.length-1])
+          } 
       }
     })
     console.log('line33',result);
