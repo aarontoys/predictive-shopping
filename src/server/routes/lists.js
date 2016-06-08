@@ -22,6 +22,8 @@ function getLists (req, res, next) {
 function getListDates (req, res, next) {
   userQueries.getSingleUser(req.params.id)
   .then(function(result) {
+  console.log('line25')
+
     // req.dates = result;
     return next();
   })
@@ -34,6 +36,8 @@ function getItems (req, res, next) {
   lists.getAllItemsByUser(req.params.id)
   .then(function (result) {
     req.items = result;
+  console.log('line37')
+
     return next();
   })
   .catch(function (err) {
@@ -48,6 +52,7 @@ function appendListDates (req, res, next) {
     sched.addOccurrences(req.lists, req.occurrences);
     sched.addItems(req.lists, req.occurrences, req.items);
     // sched.combineItems(req.lists)
+  console.log('line51')
     
     return next();
   })
@@ -62,6 +67,7 @@ function reduceList (req, res, next) {
 }
 
 function sendResults (req, res, next) {
+  console.log('line65')
   res.status(200).json({
     status: 'success',
     lists: req.lists,
