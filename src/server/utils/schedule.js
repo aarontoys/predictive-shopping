@@ -15,21 +15,27 @@ function createOccurrences (result) {
       var int = el.schedule_type;
       var arr = el.schedule;
       console.log('line17', int, typeof int)
+      console.log('line18', int, typeof int)
       switch(int) {
         case 0:  
           int = 'd'    
           el.occurrences = laterOccurrences(createSchedule(int, arr));
           lastListDate = (el.occurrences[el.occurrences.length-1])
-          console.log(lastListDate);
+          console.log('line23',lastListDate);
           break;
         case 1: 
           date = arr[0];    
-          interval = arr[1];    
+          interval = arr[1];
+          if(el.hasOwnProperty('fname')) {
+            lastListDate = (el.occurrences[el.occurrences.length-1])
+          } 
+
           console.log('line26', date, typeof date)
           console.log('line27', interval, typeof interval)
           el.occurrences = daySchedule(date, interval);
       }
     })
+    console.log('line33',result);
   return result;
 }
 
