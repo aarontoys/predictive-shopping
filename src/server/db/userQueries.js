@@ -11,6 +11,7 @@ function getSingleUser (id) {
   .then(function(result) {
     console.log('line12',result)
     result = sched.createOccurrences(result); 
+    console.log('line14',result)
     return result;
   });
 }

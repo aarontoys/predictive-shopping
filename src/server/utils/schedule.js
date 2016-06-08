@@ -14,6 +14,7 @@ function createOccurrences (result) {
     result.forEach(function(el) {
       var int = el.schedule_type;
       var arr = el.schedule;
+      console.log('line17', int, typeof int)
       switch(int) {
         case 0:  
           int = 'd'    

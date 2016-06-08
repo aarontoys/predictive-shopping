@@ -46,6 +46,7 @@ function getItems (req, res, next) {
 }
 
 function appendListDates (req, res, next) {
+  console.log('line49', req.params.id)
   userQueries.getSingleUser(req.params.id)
   .then(function (result) {
     console.log('line50', result)
