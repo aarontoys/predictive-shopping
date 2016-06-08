@@ -36,7 +36,7 @@ function daySchedule (startDate, interval) {
     if (startDate >= later.day.start(new Date())) {
       arr.push(later.day.end(startDate));
     }  
-    startDate = new Date(startDate.getTime() + (interval*later.DAY));
+    startDate = new Date(startDate.getTime() + (parseInt(interval)*later.DAY));
   }
   // if (arr.length === 4) {
   //   arr.pop()
