@@ -77,9 +77,9 @@ function compareToListDate (listDate) {
 }
 
 function addItems (listArr, occArr, itemArr) {
-  // console.log(listArr);
-  // console.log(occArr);
-  // console.log(itemArr);
+  console.log('line80',listArr);
+  console.log('line81',occArr);
+  console.log('line82',itemArr);
 
   // var itemArr = [{ occurrences: ["2016-01-01", "2016-02-01"] }, { occurrences: [] }]
   // itemArr.map((item) => {
