@@ -50,7 +50,6 @@ function appendListDates (req, res, next) {
   .then(function (result) {
     req.occurrences = result[0].occurrences;
     sched.addOccurrences(req.lists, req.occurrences);
-    sched.addItems(req.lists, req.occurrences, req.items);
     // sched.combineItems(req.lists)
   console.log('line51')
     
@@ -62,6 +61,8 @@ function appendListDates (req, res, next) {
 }
 
 function reduceList (req, res, next) {
+    sched.addItems(req.lists, req.occurrences, req.items);
+  
     // sched.combineItems(req.lists)
   return next(); 
 }
