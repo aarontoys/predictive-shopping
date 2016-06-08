@@ -29,7 +29,7 @@ function createOccurrences (result) {
 
           console.log('line26', date, typeof date)
           console.log('line27', interval, typeof interval)
-          el.occurrences = daySchedule(date, interval, 5); 
+          el.occurrences = daySchedule(date, interval); 
       }
     })
     console.log('line33',result);
@@ -39,11 +39,14 @@ function createOccurrences (result) {
 function daySchedule (startDate, interval) {
   var arr = [];
   startDate = new Date(startDate);
+  origStartDate = new Date(startDate);
+  console.log(startDate === origStartDate)
   // endDate = (new Date(lastListDate).getTime() - startDate.getTime())/later.DAY
   console.log('line43', lastListDate, !!lastListDate)
   console.log('line43', startDate.getTime()+interval*5*later.DAY)
   console.log('line45', new Date(lastListDate || startDate.getTime()+interval*5*later.DAY) )
-  while(startDate  <= new Date(lastListDate || startDate.getTime()+interval*5*later.DAY)) {  
+  while(startDate  <= new Date(lastListDate || origStartDate.getTime()+interval*5*later.DAY)) {
+    console.log(startDate);  
     if (startDate >= later.day.start(new Date())) {
       arr.push(later.day.end(startDate));
     }  
