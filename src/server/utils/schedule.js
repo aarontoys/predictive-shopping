@@ -40,7 +40,7 @@ function daySchedule (startDate, interval) {
   var arr = [];
   startDate = new Date(startDate);
   endDate = (new Date(lastListDate).getTime() - startDate.getTime())/later.DAY
-  while(startDate  <= new Date(lastListDate || startDate.getTime()+interval*5*later.DAY) {  
+  while(startDate  <= new Date(lastListDate || startDate.getTime()+interval*5*later.DAY)) {  
     if (startDate >= later.day.start(new Date())) {
       arr.push(later.day.end(startDate));
     }  
