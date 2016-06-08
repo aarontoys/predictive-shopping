@@ -10,29 +10,22 @@ var lastListDate = '';
 //also poping off last occurrence if more than 3 occurrences - also impacting item shcedule.
 
 function createOccurrences (result) {
-  console.log('createOcc line13', result)
     result.forEach(function(el) {
       var int = el.schedule_type;
       var arr = el.schedule;
-      console.log('line17', int, typeof int)
-      console.log('line18', int, typeof int)
       switch(int) {
         case 0:  
           int = 'd'    
           el.occurrences = laterOccurrences(createSchedule(int, arr));
           lastListDate = (el.occurrences[el.occurrences.length-1])
-          console.log('line23',lastListDate);
           break;
         case 1: 
           date = arr[0];    
           interval = arr[1];
 
-          console.log('line26', date, typeof date)
-          console.log('line27', interval, typeof interval)
           el.occurrences = daySchedule(date, interval); 
       }
     })
-    console.log('line33',result);
   return result;
 }
 
@@ -40,13 +33,8 @@ function daySchedule (startDate, interval) {
   var arr = [];
   startDate = new Date(startDate);
   origStartDate = new Date(startDate);
-  console.log(startDate === origStartDate)
   // endDate = (new Date(lastListDate).getTime() - startDate.getTime())/later.DAY
-  console.log('line43', lastListDate, !!lastListDate)
-  console.log('line43', startDate.getTime()+interval*5*later.DAY)
-  console.log('line45', new Date(lastListDate || startDate.getTime()+interval*5*later.DAY) )
   while(startDate  <= new Date(lastListDate || origStartDate.getTime()+interval*5*later.DAY)) {
-    console.log(startDate);  
     if (startDate >= later.day.start(new Date())) {
       arr.push(later.day.end(startDate));
     }  
@@ -91,9 +79,6 @@ function compareToListDate (listDate) {
 }
 
 function addItems (listArr, occArr, itemArr) {
-  console.log('line80',listArr);
-  console.log('line81',occArr);
-  console.log('line82',itemArr);
 
   // var itemArr = [{ occurrences: ["2016-01-01", "2016-02-01"] }, { occurrences: [] }]
   // itemArr.map((item) => {
