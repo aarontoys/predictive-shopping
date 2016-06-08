@@ -19,6 +19,7 @@ function createOccurrences (result) {
           int = 'd'    
           el.occurrences = laterOccurrences(createSchedule(int, arr));
           lastListDate = (el.occurrences[el.occurrences.length-1])
+          console.log(lastListDate);
           break;
         case 1: 
           date = arr[0];    
