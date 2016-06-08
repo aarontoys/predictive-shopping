@@ -48,16 +48,18 @@ function getItems (req, res, next) {
 function appendListDates (req, res, next) {
   userQueries.getSingleUser(req.params.id)
   .then(function (result) {
+    console.log('line50', result)
     console.log('line51', req.lists)
     console.log('line52', req.occurrences)
     req.occurrences = result[0].occurrences;
     sched.addOccurrences(req.lists, req.occurrences);
     // sched.combineItems(req.lists)
-  console.log('line51')
+  // console.log('line51')
     
     return next();
   })
   .catch(function (err) {
+    console.log(err);
     return next(err);
   })
 }
